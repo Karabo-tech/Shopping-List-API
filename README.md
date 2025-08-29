@@ -58,7 +58,7 @@ The API handles CRUD operations and includes input validation and consistent err
 ### Installation
 1. Clone the repository:
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/Karabo-tech/Shopping-List-API.git
    cd shopping-list-api
 
 2. Install dependencies:
