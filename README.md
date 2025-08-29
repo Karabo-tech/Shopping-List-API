@@ -62,9 +62,11 @@ The API handles CRUD operations and includes input validation and consistent err
    cd shopping-list-api
 
 2. Install dependencies:
+   ```bash
     npm install
 
 3. For development with auto-restart:
+   ```bash
     npm run dev
 
 Base URL
