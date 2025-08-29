@@ -66,3 +66,129 @@ The API handles CRUD operations and includes input validation and consistent err
 
 3. For development with auto-restart:
     npm run dev
+
+Base URL
+http://localhost:3000
+
+Endpoints
+1. Add a New Item
+
+POST /items
+
+Request Body (JSON):
+
+{
+  "name": "Milk",
+  "quantity": 2
+}
+
+
+Responses:
+
+201 Created
+
+{
+  "id": "uuid",
+  "name": "Milk",
+  "quantity": 2,
+  "purchased": false
+}
+
+
+400 Bad Request
+
+{ "error": "Name and valid quantity are required" }
+
+2. Get All Items
+
+GET /items
+
+Response:
+
+200 OK
+
+[
+  {
+    "id": "uuid",
+    "name": "Milk",
+    "quantity": 2,
+    "purchased": false
+  },
+  {
+    "id": "uuid",
+    "name": "Eggs",
+    "quantity": 12,
+    "purchased": false
+  }
+]
+
+3. Get Item by ID
+
+GET /items/:id
+
+Example: /items/123e4567-e89b-12d3-a456-426614174000
+
+Responses:
+
+200 OK
+
+{
+  "id": "123e4567-e89b-12d3-a456-426614174000",
+  "name": "Milk",
+  "quantity": 2,
+  "purchased": false
+}
+
+
+404 Not Found
+
+{ "error": "Item not found" }
+
+4. Update Item
+
+PUT /items/:id
+
+Request Body (JSON):
+
+{
+  "name": "Bread",
+  "quantity": 3,
+  "purchased": true
+}
+
+
+Responses:
+
+200 OK
+
+{
+  "id": "uuid",
+  "name": "Bread",
+  "quantity": 3,
+  "purchased": true
+}
+
+
+400 Bad Request
+
+{ "error": "Name and valid quantity are required" }
+
+
+404 Not Found
+
+{ "error": "Item not found" }
+
+5. Delete Item
+
+DELETE /items/:id
+
+Responses:
+
+200 OK
+
+{ "message": "Item deleted successfully" }
+
+
+404 Not Found
+
+{ "error": "Item not found" }
