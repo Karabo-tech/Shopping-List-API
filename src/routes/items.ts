@@ -65,4 +65,15 @@ router.put('/:id', (req: Request, res: Response) => {
   res.json(items[itemIndex]);
 });
 
+router.delete('/:id', (req: Request, res: Response) => {
+  const itemIndex = items.findIndex((i) => i.id === req.params.id);
+
+  if (itemIndex === -1) {
+    return res.status(404).json({ error: 'Item not found' });
+  }
+
+  items.splice(itemIndex, 1);
+  res.status(204).send();
+});
+
 export default router;
